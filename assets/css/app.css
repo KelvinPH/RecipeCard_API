@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+p, a {
+  font-size: 1rem;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container .card {
+  width: 500px;
+  height: 800px;
+  position: relative;
+  border-radius: 35px;
+  display: flex;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+.container .card .front {
+  background: #000000;
+  height: 100%;
+  width: 100%;
+  border-radius: 35px;
+  z-index: 99;
+}
+.container .card .front .arrow {
+  position: absolute;
+  right: 5%;
+  top: 3%;
+  z-index: 2;
+  transition: ease 0.5s;
+}
+.container .card .front .arrow:hover {
+  right: 3%;
+}
+.container .card .front .arrow.active {
+  transform: rotate(-180deg);
+}
+.container .card .front .arrow.active:hover {
+  right: 7%;
+}
+.container .card .front thumbnail {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 35px;
+}
+.container .card .front thumbnail img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  opacity: 0.5;
+  border-radius: 35px;
+}
+.container .card .front source {
+  position: absolute;
+  left: 5%;
+  top: 3%;
+}
+.container .card .front source .arrow-btn {
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  color: #FFFFFF;
+  padding: 1em 1.8em;
+  background: #125C13;
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: 400;
+  text-decoration: none;
+}
+.container .card .front source .arrow-btn .arrow {
+  margin-top: 1px;
+  width: 10px;
+  background: #125C13;
+  height: 2px;
+  position: relative;
+  transition: 0.2s;
+}
+.container .card .front source .arrow-btn .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+.container .card .front source .arrow-btn:hover {
+  background-color: #1E1E1E;
+}
+.container .card .front source .arrow-btn:hover .arrow {
+  background: #fff;
+}
+.container .card .front source .arrow-btn:hover .arrow:before {
+  right: 0;
+}
+.container .card .front source .arrow-btn.arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container .card .front heading {
+  position: absolute;
+  bottom: 15%;
+  left: 5%;
+  color: #FFFFFF;
+}
+.container .card .front heading h1 {
+  margin-bottom: 20px;
+}
+.container .card .front heading h2 {
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+.container .card .front heading h4 {
+  font-weight: 300;
+  font-style: italic;
+}
+.container .card .back {
+  position: absolute;
+  border-radius: 35px;
+  margin-left: 10px;
+  transition: ease 0.5s;
+  background: #F4A442;
+  height: 100%;
+  width: 100%;
+}
+.container .card .back.active {
+  margin-left: 510px;
+}
+.container .card .back .selection {
+  padding: 15px;
+  justify-content: space-around;
+  border-radius: 35px;
+}
+.container .card .back .selection .buttons {
+  padding: 10px 30px;
+  background: #FFFFFF;
+  border-radius: 35px;
+  display: flex;
+  justify-content: space-around;
+}
+.container .card .back .selection .buttons a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1.25rem;
+  padding: 10px;
+  transition: ease 0.5s;
+  border-radius: 35px;
+}
+.container .card .back .selection .buttons a:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+.container .card .back .selection .buttons a.active {
+  font-weight: 600;
+}
+.container .card .back ingredients {
+  height: 675px;
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+.container .card .back ingredients.show {
+  display: flex;
+}
+.container .card .back ingredients table {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+}
+.container .card .back ingredients table td {
+  padding: 5px 45px;
+}
+.container .card .back instructions {
+  display: block;
+  height: 675px;
+  padding: 15px 30px;
+  position: relative;
+  color: #FFFFFF;
+  overflow-y: scroll;
+}
+.container .card .back instructions.hide {
+  display: none;
+}
+.container .card .back instructions.show {
+  display: block;
+}
+
+@media screen and (max-width: 1024px) {
+  .arrow {
+    transform: rotate(90deg);
+  }
+  .arrow.active {
+    transform: rotate(-90deg) !important;
+  }
+  .back {
+    transition: ease 1s;
+  }
+  .back.active {
+    margin-left: 100px !important;
+    z-index: 100;
+    margin-top: 100px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .arrow {
+    transform: rotate(90deg);
+  }
+  .arrow.active {
+    transform: rotate(-90deg) !important;
+  }
+  .card {
+    width: 330px !important;
+    height: 550px !important;
+  }
+  .card .back {
+    transition: ease 1s;
+  }
+  .card .back.active {
+    margin-left: 0px !important;
+    z-index: 100;
+    margin-top: 70px;
+  }
+}/*# sourceMappingURL=app.css.map */
